@@ -1,0 +1,117 @@
+<!DOCTYPE html> <html><head>
+        <title>What crime are you quiz.</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&amp;display=swap" rel="stylesheet">
+    <style>body {
+    font-family: 'Oswald', sans-serif;
+    background-color: #17d3ff;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+}</style></head>
+    <body>
+        <div class="title">
+            <h1>What crime are you?</h1>
+        </div>
+        <div class="questions">
+            <h4>How many people could you kill with a stick?</h4>
+            <ul>
+                <li>You can't leave.</li>
+                <li>You can't break the stick or anything else in the room.</li>
+                <li>Under is where your fighting and what your fighting with.</li>
+                <li>They come one by one</li>
+                <li>You don't get food or water</li>
+            </ul>
+
+            <img src="https://pa1.aminoapps.com/6543/4aa9b352b437a51c781e17ae27ec130b1dd6c9c6_hq.gif">
+            <img src="https://b2bshop.bgreen.dk/media/catalog/product/cache/44ce39508894c1c006cc96a7fd03b69c/9/5/95101138_adb9.jpg">
+            <br>
+            <input placeholder="your answer">
+            <button>Submit</button>
+
+            <h4>What would you go to jail for out of...</h4>
+            <ol>
+                <li>Accidental manslaughter</li>
+                <li>Murder</li>
+                <li>Stealing pigeons</li>
+                <li>Bridezilla</li>
+            </ol>
+
+            <img src="https://media1.tenor.com/m/ArMwH7NXm30AAAAC/jail.gif">
+            <br>
+            <input class="Q2response" placeholder="your answer">
+            <button class="Q2-button">Submit</button>
+
+        </div>
+        <div class="result">
+            this is where the user will see their quiz result!
+            <p class="Q1output"></p>
+            <div class="Q2output"></div>
+        </div>
+        <button class="Done">Click when ready</button>
+        <div class="result1">
+        </div>
+
+
+
+    
+<script>
+/*__POPCODESTART__*/
+var KC;
+var Q2Input;
+var button = document.querySelector("button");
+var letterGrade = document.querySelector(".letter-grade");
+
+button.onclick = function () {
+  KC = document.querySelector("input").value;
+  var Q1output = document.querySelector(".Q1output");
+
+  if (KC >= 50) {
+    Q1output.innerHTML = "<em>Please be realistic</em>";
+  } else if (KC >= 20) {
+    Q1output.innerHTML = "<em>Jeus!!!</em>";
+  } else {
+    Q1output.innerHTML = "<em>Okaay.</em>";
+  }
+};
+
+var Q2Button = document.querySelector(".Q2-button");
+
+Q2Button.onclick = function () {
+  Q2Input = document.querySelector(".Q2response").value;
+
+  if (Q2Input === "Accidental manslaughter") {
+    document.querySelector(".Q2output").innerHTML = "Why?";
+  } else if (Q2Input === "Murder") {
+    document.querySelector(".Q2output").innerHTML = "How did I know.";
+  } else if (Q2Input === "Stealing pigeons") {
+    document.querySelector(".Q2output").innerHTML = "You don't deserve prison time.";
+  } else if (Q2Input === "Bridezilla") {
+    document.querySelector(".Q2output").innerHTML = "You crazy B-!!";
+  }
+};
+
+var Done = document.querySelector(".Done");
+var result1 = document.querySelector(".result1");
+var result2 = document.querySelector(".result2");
+
+Done.onclick = function () {
+  alert('Are you sure');
+
+  if (KC >= 20 && Q2Input === "Accidental manslaughter" || KC <= 19 && Q2Input === "Accidental manslaughter" || KC <= 19 && Q2Input === "Stealing pigeons") {
+    console.log("I3");
+    result2.innerHTML = "Robbery";
+  } else if (KC >= 20 && Q2Input === "Bridezilla" || KC <= 19 && Q2Input === "Bridezilla") {
+    result2 = "Arson";
+  } else if (KC >= 20 && Q2Input === "Murder") {
+    result2 = "Murder";
+  } else if (KC <= 19 && Q2Input === "Stealing pigeons") {
+    result2 = "let phones ring more than nine times in state offices";
+  } else if (KC <= 19 && Q2Input === "Murder") {
+    result2 = "kidnapping";
+  }
+
+  result1.innerHTML = "you said you can kill " + KC + " people and you are going to jail for " + Q2Input + " therefore you are " + result2 + " sorry.";
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbIktDIiwiUTJJbnB1dCIsImJ1dHRvbiIsImRvY3VtZW50IiwicXVlcnlTZWxlY3RvciIsImxldHRlckdyYWRlIiwib25jbGljayIsInZhbHVlIiwiUTFvdXRwdXQiLCJpbm5lckhUTUwiLCJRMkJ1dHRvbiIsIkRvbmUiLCJyZXN1bHQxIiwicmVzdWx0MiIsImFsZXJ0IiwiY29uc29sZSIsImxvZyJdLCJtYXBwaW5ncyI6IkFBQUEsSUFBSUEsRUFBSjtBQUNBLElBQUlDLE9BQUo7QUFDQSxJQUFJQyxNQUFNLEdBQUdDLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixRQUF2QixDQUFiO0FBQ0EsSUFBSUMsV0FBVyxHQUFHRixRQUFRLENBQUNDLGFBQVQsQ0FBdUIsZUFBdkIsQ0FBbEI7O0FBRUFGLE1BQU0sQ0FBQ0ksT0FBUCxHQUFpQixZQUFXO0FBQ3hCTixFQUFBQSxFQUFFLEdBQUdHLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixPQUF2QixFQUFnQ0csS0FBckM7QUFDQSxNQUFJQyxRQUFRLEdBQUdMLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixXQUF2QixDQUFmOztBQUNBLE1BQUlKLEVBQUUsSUFBSSxFQUFWLEVBQWM7QUFFVlEsSUFBQUEsUUFBUSxDQUFDQyxTQUFULEdBQXFCLDhCQUFyQjtBQUNILEdBSEQsTUFHTyxJQUFJVCxFQUFFLElBQUksRUFBVixFQUFjO0FBQ2pCUSxJQUFBQSxRQUFRLENBQUNDLFNBQVQsR0FBcUIsa0JBQXJCO0FBQ0gsR0FGTSxNQUVBO0FBQ0hELElBQUFBLFFBQVEsQ0FBQ0MsU0FBVCxHQUFxQixpQkFBckI7QUFDSDtBQUNKLENBWEQ7O0FBWUEsSUFBSUMsUUFBUSxHQUFHUCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsWUFBdkIsQ0FBZjs7QUFDQU0sUUFBUSxDQUFDSixPQUFULEdBQW9CLFlBQVc7QUFDM0JMLEVBQUFBLE9BQU8sR0FBR0UsUUFBUSxDQUFDQyxhQUFULENBQXVCLGFBQXZCLEVBQXNDRyxLQUFoRDs7QUFDQSxNQUFJTixPQUFPLEtBQUsseUJBQWhCLEVBQTJDO0FBQ3ZDRSxJQUFBQSxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsV0FBdkIsRUFBb0NLLFNBQXBDLEdBQWdELE1BQWhEO0FBQ0gsR0FGRCxNQUVPLElBQUlSLE9BQU8sS0FBSyxRQUFoQixFQUEwQjtBQUM3QkUsSUFBQUEsUUFBUSxDQUFDQyxhQUFULENBQXVCLFdBQXZCLEVBQW9DSyxTQUFwQyxHQUFnRCxpQkFBaEQ7QUFDSCxHQUZNLE1BRUEsSUFBSVIsT0FBTyxLQUFLLGtCQUFoQixFQUFvQztBQUN2Q0UsSUFBQUEsUUFBUSxDQUFDQyxhQUFULENBQXVCLFdBQXZCLEVBQW9DSyxTQUFwQyxHQUFnRCxnQ0FBaEQ7QUFDSCxHQUZNLE1BRUEsSUFBSVIsT0FBTyxLQUFLLFlBQWhCLEVBQThCO0FBQ2pDRSxJQUFBQSxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsV0FBdkIsRUFBb0NLLFNBQXBDLEdBQWdELGdCQUFoRDtBQUNIO0FBQ0osQ0FYRDs7QUFZQSxJQUFJRSxJQUFJLEdBQUdSLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixPQUF2QixDQUFYO0FBQ0EsSUFBSVEsT0FBTyxHQUFHVCxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsVUFBdkIsQ0FBZDtBQUNBLElBQUlTLE9BQU8sR0FBR1YsUUFBUSxDQUFDQyxhQUFULENBQXVCLFVBQXZCLENBQWQ7O0FBQ0FPLElBQUksQ0FBQ0wsT0FBTCxHQUFlLFlBQVc7QUFDdEJRLEVBQUFBLEtBQUssQ0FBQyxjQUFELENBQUw7O0FBRUEsTUFBSWQsRUFBRSxJQUFJLEVBQU4sSUFBWUMsT0FBTyxLQUFLLHlCQUF4QixJQUFxREQsRUFBRSxJQUFJLEVBQU4sSUFBWUMsT0FBTyxLQUFLLHlCQUE3RSxJQUEwR0QsRUFBRSxJQUFJLEVBQU4sSUFBWUMsT0FBTyxLQUFLLGtCQUF0SSxFQUEwSjtBQUN0SmMsSUFBQUEsT0FBTyxDQUFDQyxHQUFSLENBQVksSUFBWjtBQUNBSCxJQUFBQSxPQUFPLENBQUNKLFNBQVIsR0FBb0IsU0FBcEI7QUFDSCxHQUhELE1BR08sSUFBSVQsRUFBRSxJQUFJLEVBQU4sSUFBWUMsT0FBTyxLQUFLLFlBQXhCLElBQXdDRCxFQUFFLElBQUksRUFBTixJQUFZQyxPQUFPLEtBQUssWUFBcEUsRUFBa0Y7QUFDckZZLElBQUFBLE9BQU8sR0FBRSxPQUFUO0FBQ0gsR0FGTSxNQUVBLElBQUliLEVBQUUsSUFBSSxFQUFOLElBQVlDLE9BQU8sS0FBSyxRQUE1QixFQUFzQztBQUN6Q1ksSUFBQUEsT0FBTyxHQUFFLFFBQVQ7QUFDSCxHQUZNLE1BRUEsSUFBSWIsRUFBRSxJQUFJLEVBQU4sSUFBWUMsT0FBTyxLQUFLLGtCQUE1QixFQUFnRDtBQUNuRFksSUFBQUEsT0FBTyxHQUFHLHVEQUFWO0FBQ0gsR0FGTSxNQUVBLElBQUliLEVBQUUsSUFBSSxFQUFOLElBQVlDLE9BQU8sS0FBSyxRQUE1QixFQUFzQztBQUN6Q1ksSUFBQUEsT0FBTyxHQUFHLFlBQVY7QUFDSDs7QUFDTEQsRUFBQUEsT0FBTyxDQUFDSCxTQUFSLEdBQWtCLDJCQUF5QlQsRUFBekIsR0FBNEIsd0NBQTVCLEdBQXFFQyxPQUFyRSxHQUE2RSxxQkFBN0UsR0FBbUdZLE9BQW5HLEdBQTJHLFNBQTdIO0FBQ0MsQ0FoQkQiLCJzb3VyY2VzQ29udGVudCI6WyJsZXQgS0M7XG5sZXQgUTJJbnB1dDtcbmxldCBidXR0b24gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiYnV0dG9uXCIpO1xubGV0IGxldHRlckdyYWRlID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5sZXR0ZXItZ3JhZGVcIik7XG5cbmJ1dHRvbi5vbmNsaWNrID0gZnVuY3Rpb24oKSB7XG4gICAgS0MgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiaW5wdXRcIikudmFsdWU7XG4gICAgbGV0IFExb3V0cHV0ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMW91dHB1dFwiKTtcbiAgICBpZiAoS0MgPj0gNTApIHtcblxuICAgICAgICBRMW91dHB1dC5pbm5lckhUTUwgPSBcIjxlbT5QbGVhc2UgYmUgcmVhbGlzdGljPC9lbT5cIjtcbiAgICB9IGVsc2UgaWYgKEtDID49IDIwKSB7XG4gICAgICAgIFExb3V0cHV0LmlubmVySFRNTCA9IFwiPGVtPkpldXMhISE8L2VtPlwiO1xuICAgIH0gZWxzZSB7XG4gICAgICAgIFExb3V0cHV0LmlubmVySFRNTCA9IFwiPGVtPk9rYWF5LjwvZW0+XCI7XG4gICAgfVxufTtcbmxldCBRMkJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuUTItYnV0dG9uXCIpO1xuUTJCdXR0b24ub25jbGljayA9IChmdW5jdGlvbigpIHtcbiAgICBRMklucHV0ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMnJlc3BvbnNlXCIpLnZhbHVlO1xuICAgIGlmIChRMklucHV0ID09PSBcIkFjY2lkZW50YWwgbWFuc2xhdWdodGVyXCIpIHtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMm91dHB1dFwiKS5pbm5lckhUTUwgPSBcIldoeT9cIjtcbiAgICB9IGVsc2UgaWYgKFEySW5wdXQgPT09IFwiTXVyZGVyXCIpIHtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMm91dHB1dFwiKS5pbm5lckhUTUwgPSBcIkhvdyBkaWQgSSBrbm93LlwiO1xuICAgIH0gZWxzZSBpZiAoUTJJbnB1dCA9PT0gXCJTdGVhbGluZyBwaWdlb25zXCIpIHtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMm91dHB1dFwiKS5pbm5lckhUTUwgPSBcIllvdSBkb24ndCBkZXNlcnZlIHByaXNvbiB0aW1lLlwiO1xuICAgIH0gZWxzZSBpZiAoUTJJbnB1dCA9PT0gXCJCcmlkZXppbGxhXCIpIHtcbiAgICAgICAgZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5RMm91dHB1dFwiKS5pbm5lckhUTUwgPSBcIllvdSBjcmF6eSBCLSEhXCI7XG4gICAgfVxufSk7XG5sZXQgRG9uZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIuRG9uZVwiKTtcbmxldCByZXN1bHQxID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIi5yZXN1bHQxXCIpO1xubGV0IHJlc3VsdDIgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJlc3VsdDJcIik7XG5Eb25lLm9uY2xpY2sgPSBmdW5jdGlvbigpIHtcbiAgICBhbGVydCgnQXJlIHlvdSBzdXJlJyk7XG4gICAgXG4gICAgaWYgKEtDID49IDIwICYmIFEySW5wdXQgPT09IFwiQWNjaWRlbnRhbCBtYW5zbGF1Z2h0ZXJcIiB8fCBLQyA8PSAxOSAmJiBRMklucHV0ID09PSBcIkFjY2lkZW50YWwgbWFuc2xhdWdodGVyXCIgfHwgS0MgPD0gMTkgJiYgUTJJbnB1dCA9PT0gXCJTdGVhbGluZyBwaWdlb25zXCIpIHtcbiAgICAgICAgY29uc29sZS5sb2coXCJJM1wiKTtcbiAgICAgICAgcmVzdWx0Mi5pbm5lckhUTUwgPSBcIlJvYmJlcnlcIjtcbiAgICB9IGVsc2UgaWYgKEtDID49IDIwICYmIFEySW5wdXQgPT09IFwiQnJpZGV6aWxsYVwiIHx8IEtDIDw9IDE5ICYmIFEySW5wdXQgPT09IFwiQnJpZGV6aWxsYVwiKSB7XG4gICAgICAgIHJlc3VsdDI9IFwiQXJzb25cIjtcbiAgICB9IGVsc2UgaWYgKEtDID49IDIwICYmIFEySW5wdXQgPT09IFwiTXVyZGVyXCIpIHtcbiAgICAgICAgcmVzdWx0Mj0gXCJNdXJkZXJcIjtcbiAgICB9IGVsc2UgaWYgKEtDIDw9IDE5ICYmIFEySW5wdXQgPT09IFwiU3RlYWxpbmcgcGlnZW9uc1wiKSB7XG4gICAgICAgIHJlc3VsdDIgPSBcImxldCBwaG9uZXMgcmluZyBtb3JlIHRoYW4gbmluZSB0aW1lcyBpbiBzdGF0ZSBvZmZpY2VzXCI7XG4gICAgfSBlbHNlIGlmIChLQyA8PSAxOSAmJiBRMklucHV0ID09PSBcIk11cmRlclwiKSB7XG4gICAgICAgIHJlc3VsdDIgPSBcImtpZG5hcHBpbmdcIjtcbiAgICB9XG5yZXN1bHQxLmlubmVySFRNTD1cInlvdSBzYWlkIHlvdSBjYW4ga2lsbCBcIitLQytcIiBwZW9wbGUgYW5kIHlvdSBhcmUgZ29pbmcgdG8gamFpbCBmb3IgXCIrUTJJbnB1dCtcIiB0aGVyZWZvcmUgeW91IGFyZSBcIityZXN1bHQyK1wiIHNvcnJ5LlwiO1xufTsiXX0=</script></body></html>
